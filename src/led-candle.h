@@ -1,6 +1,16 @@
 #pragma once
 
+#ifdef SPARK_PLATFORM
 #include "Particle.h"
+#else
+#ifndef ARDUINO
+#include <stdint.h>
+#elif ARDUINO >= 100
+#include "Arduino.h"
+#else
+#include "WProgram.h"
+#endif
+#endif
 
 // States for the LED's finite state machine
 #define LEDCANDLE_STATE_BRIGHT 0
