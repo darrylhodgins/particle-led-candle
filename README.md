@@ -48,6 +48,42 @@ void loop() {
 
 See the [examples](examples) folder for more details.
 
+## Configuration
+
+You can override any of the default configuration with `#define` statements, before `#include "led-candle.h"`.
+
+### Options
+
+| Name | Default Value | Description |
+|------|---------------|---------|
+| `LEDCANDLE_BRIGHTNESS_BOTTOM_PERCENT` | `10`  | Percent chance the LED will suddenly fall to minimum brightness |
+| `LEDCANDLE_BRIGHTNESS_BOTTOM`         | `128` | Absolute minimum brightness value |
+| `LEDCANDLE_BRIGHTNESS_MIN`            | `128` | Minimum brightness value during "normal" flickering |
+| `LEDCANDLE_BRIGHTNESS_MAX`            | `255` | Maximum brightness value |
+| `LEDCANDLE_DOWN_MIN_MSECS`            | `20`  | Decreasing brightness will take place over a number of milliseconds in this range |
+| `LEDCANDLE_DOWN_MAX_MSECS`            | `250` | Decreasing brightness will take place over a number of milliseconds in this range |
+| `LEDCANDLE_UP_MIN_MSECS`              | `20`  | Increasing brightness will take place over a number of milliseconds in this range |
+| `LEDCANDLE_UP_MAX_MSECS`              | `250` | Increasing brightness will take place over a number of milliseconds in this range |
+| `LEDCANDLE_BRIGHT_HOLD_PERCENT`       | `20`  | Percent chance the color will hold unchanged after brightening |
+| `LEDCANDLE_BRIGHT_HOLD_MIN_MSECS`     | `0`   | When holding after brightening, hold for a number of milliseconds in this range |
+| `LEDCANDLE_BRIGHT_HOLD_MAX_MSECS`     | `100` | When holding after brightening, hold for a number of milliseconds in this range |
+| `LEDCANDLE_DIM_HOLD_PERCENT`          | `5`   | Percent chance the color will hold unchanged after dimming |
+| `LEDCANDLE_DIM_HOLD_MIN_MSECS`        | `0`   | When holding after dimming, hold for a number of milliseconds in this range |
+| `LEDCANDLE_DIM_HOLD_MAX_MSECS`        | `50`  | When holding after dimming, hold for a number of milliseconds in this range |
+
+### Example
+
+For a dramatic flickering effect, adjust the minimum brightness:
+
+```
+#define LEDCANDLE_BRIGHTNESS_BOTTOM 25
+#define LEDCANDLE_BRIGHTNESS_MIN 25
+
+#include "led-candle.h"
+
+// ...etc
+```
+
 ## Attribution
 
 This library builds upon [code from Adafruit's Learning System](https://github.com/adafruit/Adafruit_Learning_System_Guides/tree/master/LED_Candles).
